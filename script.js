@@ -35,7 +35,12 @@ canvas.addEventListener('mousedown', () => pressed = true);
 
 canvas.addEventListener('mouseup', () => pressed = false);
 
-canvas.addEventListener('touchstart', () => pressed = true);
+canvas.addEventListener('touchstart', (e) => {
+  pressed = true;
+  curX = (window.Event) ? e.pageX : e.touches[0].clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+  curY = (window.Event) ? e.pageY : e.touches[0].clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+}
+);
 
 canvas.addEventListener('touchend', () => pressed = false);
 

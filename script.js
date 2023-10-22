@@ -35,6 +35,12 @@ canvas.addEventListener('mousedown', () => pressed = true);
 
 canvas.addEventListener('mouseup', () => pressed = false);
 
+canvas.addEventListener('touchstart', () => pressed = true);
+
+canvas.addEventListener('touchend', () => pressed = false);
+
+
+
 clearBtn.addEventListener('click', () => {
   ctx.fillStyle = 'rgb(0,0,0)';
   ctx.fillRect(0,0,width,height);
